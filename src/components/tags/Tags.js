@@ -15,23 +15,23 @@ export default function Tags() {
   }, [dispatch]);
 
   return tags?.length > 0 ? (
-    <section className="flex justify-center items-center">
+    <section>
       <div className="max-w-7xl mx-auto px-5 py-6 lg:px-0 flex gap-2 border-b overflow-y-auto">
         {tags.map((tag) => (
           <Tag key={tag.id} title={tag.title} />
         ))}
-      </div>
-      <div
-        className={`pr-40 ${
-          fTags.length > 0 || search || authors ? "block" : "hidden"
-        }`}
-      >
-        <button
-          className="bg-red-500 p-2 text-white rounded"
-          onClick={() => dispatch(clearAll())}
+        <div
+          className={`ml-10 ${
+            fTags.length > 0 || search || authors ? "block" : "hidden"
+          }`}
         >
-          Clear Filter
-        </button>
+          <button
+            className="bg-red-500 p-1 px-5 text-white rounded"
+            onClick={() => dispatch(clearAll())}
+          >
+            Clear Filter
+          </button>
+        </div>
       </div>
     </section>
   ) : null;
